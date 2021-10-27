@@ -8,6 +8,7 @@ import Formulaire from './components/Form/Form';
 import Header from './components/Header/Header';
 import Circle from './components/Circle/Circle';
 import Card_Groups from './components/Card_Groups/Card_Groups';
+import Footer from './components/Footer/Footer';
 
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
     <Header />
     <Card_Groups/>
     <Formulaire/>
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
