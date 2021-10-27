@@ -4,10 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import Formulaire from './components/Form/Form';
+import Header from './components/Header/Header';
+import Circle from './components/Circle/Circle';
+import Card_Groups from './components/Card_Groups/Card_Groups';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <Card_Groups/>
+    <Formulaire/>
   </React.StrictMode>,
   document.getElementById('root')
 );
