@@ -3,7 +3,7 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const Circle = ({ number=66, color="red" }) => {
+const Circle = ({ number, color }) => {
   return (
     <>
       <div style={{ width: 200, height: 200 }}>

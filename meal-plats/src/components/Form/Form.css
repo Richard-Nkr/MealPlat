@@ -23,3 +23,14 @@ span {
     color: #DC143C;
 }
 
+#text_top_image {
+    text-align:center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#IMC_image {
+    text-align:center;
+    margin:auto;
+    display:flex;
+    }
