@@ -6,14 +6,8 @@ import './Form.css';
 import { useForm, useFormState } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import IMC_assets from "../../assets/imc.png";
-import Alert_Information from '../Alert_Message/Alert_Information';
-import Spinner from 'react-bootstrap/Spinner'
-
-
-
-
-
-
+import AlertInformation from '../Alert_Message/Alert_Information';
+import Entete from '../En-tete/En-tete';
 
 
 const Formulaire = () => {
@@ -21,9 +15,12 @@ const Formulaire = () => {
 const { register, control, handleSubmit, formState: { errors } } = useForm({
   mode:"onChange"
 });
-const {isSubmitting,isSubmitSuccessful } = useFormState({
+const {isSubmitting,isSubmitSuccessful, isSubmitted } = useFormState({
   control
 });
+
+
+
 
 // Afficher les valeurs entrer dans le formulaire apres 2 secondes
 
@@ -52,6 +49,72 @@ const onSubmit= (data) => {
          localStorage.setItem('IMC', JSON.stringify(imc));
          localStorage.setItem('Nom', JSON.stringify(nom));
          localStorage.setItem('Prenom', JSON.stringify(prenom));
+
+
+         // Si l'utilisateur est un homme
+         if (sexe == "homme") {
+           let calories_H = (13.7516 * poids + 500.33 * taille - 6.7750 *age + 66.479);
+           switch(activite) {
+            case "aucun":
+              let res = calories_H * 1.375;
+              let resultat = res.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat));
+              console.log(resultat);
+              break;
+            case "faible":
+              let res_faible = calories_H * 1.56;
+              let resultat_faible = res_faible.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat_faible));
+              console.log(resultat_faible);
+              break;
+            case "moyen": 
+              let res_moyen = calories_H * 1.64;
+              let resultat_moyen = res_moyen.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat_moyen));
+              console.log(resultat_moyen);
+              break;
+            case "haute": 
+              let res_haute = calories_H * 1.82;
+              let resultat_haute = res_haute.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat_haute));
+              console.log(resultat_haute);
+              break;
+           }
+
+           
+         }
+
+         else {
+          console.log("FEMMMMMMME");
+          let calories_F = (9.740 * poids + 184.96 * taille - 4.6756 *age + 655.0955);
+          console.log(calories_F);
+          switch (activite) {
+            case "aucun":
+              let res_femme = calories_F * 1.375;
+              let resultat_femme = res_femme.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat_femme));
+              console.log(resultat_femme);
+              break;
+            case "faible": 
+              let res_femme_faible = calories_F * 1.56;
+              let resultat_femme_faible = res_femme_faible.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat_femme_faible));
+              console.log(resultat_femme_faible);
+              break;
+            case "moyen":
+              let res_femme_moyen = calories_F * 1.64;
+              let resultat_femme_moyen = res_femme_moyen.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat_femme_moyen));
+              console.log(resultat_femme_moyen);
+              break;
+            case "haute": 
+              let res_femme_haute = calories_F * 1.82;
+              let resultat_femme_haute = res_femme_haute.toFixed(2);
+              localStorage.setItem('CALORIES', JSON.stringify(resultat_femme_haute));
+              console.log(resultat_femme_haute);
+              break; 
+             }
+         }
         
         
      
@@ -60,6 +123,8 @@ const onSubmit= (data) => {
     });
       
 }
+console.log();
+
 
 // Sans utilisation de JSON.parse , on utilise cette fonction pour remplacer les guillements des chaines de caractères
 
@@ -78,14 +143,32 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
 
         <Form.Group className="mb-3" controlId="formBasicNom">
 
-       {isSubmitSuccessful && <Alert variant="success">
+        <Entete phrase={"Veuillez remplir correctement présent le formulaire présent ci-dessous"}/>   
+        <br />       
+
+
+
+           {/* Affiche l'alert en focntion des données rentrées par l'utilisateur*/}
+
+
+          {isSubmitSuccessful && <Alert variant="success">
           <Alert.Heading> Validation du fourmlaire</Alert.Heading>
           <p>
             Merci {parse_nom} {parse_prenom} d'avoir valider vos informations, vous trouverez ci dessous une liste de plat correspondant à votre rythme de vie.
           </p>
-        </Alert>} 
+        </Alert>}             
 
-          {!isSubmitSuccessful && <Alert_Information/>} 
+          {!isSubmitSuccessful && isSubmitted && <AlertInformation 
+          phrase={"Assurez-vous de bien remplir le formulaire afin que MealPlats vous donnent les informations correspondant à votre profil."}
+          title={"Echec de l'envoie !"}
+          color={"danger"}
+          />}
+
+          {!isSubmitSuccessful && !isSubmitted && !isSubmitting && <AlertInformation
+          phrase={"Veuillez remplir entièrement ce formulaire avec vos informations afin que nous vous proposions différents plats correspondant à votre profil."}
+          title={"Remplissage du formulaire"}
+          color={"warning"}
+          />} 
 
 
           <Form.Label>Nom</Form.Label>
@@ -126,12 +209,7 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
           
           })}/>
             
-            <ErrorMessage
-              errors={errors}
-              name="prenom"
-              render={({ message }) => <span>{message}</span>}
-          />
-
+                                                                                                            
 
           </Form.Group>     
           {/* Form.Select ne fonctionne pas, donc on créé un label en html pure*/}
@@ -218,16 +296,16 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
             <option disabled defaultValue>Choississez en fonction de la fréquence de vos activités </option>
             <option value="aucun">Sédentaire</option>
             <option value="faible">1 à 3 fois par semaine </option>
-            <option value="haute">4 à 6 fois par semaine </option>
+            <option value="moyen">4 à 6 fois par semaine </option>
             <option value="haute">+ de 6 fois par semaine </option>
         </select>
 
         <br />
         <br />
 
-       
+        {/* Si le formulaire est valide alors on affiche une image avec un text*/}
         {isSubmitSuccessful && <div>
-          <p id='text_top_image'>Merci d'avoir correctement remplie le formulaire!Votre IMC est de {localStorage.IMC}</p>
+          <p id='text_top_image'>Merci d'avoir correctement remplie le formulaire ! Votre IMC est de {localStorage.IMC}</p>
           <img id="IMC_image" src={IMC_assets} alt="Erreur loading image"></img>
                               </div>}
 

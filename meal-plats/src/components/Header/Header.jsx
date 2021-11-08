@@ -9,11 +9,11 @@ const Header = ({
     <>
       <header>
         <div class="overlay">
-          <h1></h1>
           <Title title="MealPlats"></Title>
           <h2>{title}</h2>
           <p>{text}</p>        
         </div>
+        <br/>
       </header>
     </>
   );

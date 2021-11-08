@@ -1,15 +1,16 @@
 
 import Alert from 'react-bootstrap/Alert';
 
-const Alert_Information = () => {
+const AlertInformation = ({phrase, title,color}) => {
+  
     return(
-        <Alert variant="secondary">
-    <Alert.Heading> Informations ! </Alert.Heading>
+        <Alert variant={color}>
+    <Alert.Heading> <p> {title}</p> </Alert.Heading>
     <p>
-     Veuillez renseigner vos données dans ce formulaire afin de vous proproser vos plats correspondants à votre profil !
+      {phrase}
     </p>
   </Alert>
     )
 }
 
-export default Alert_Information
+export default AlertInformation
