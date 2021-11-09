@@ -3,20 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import Formulaire from './components/Form/Form';
-import Header from './components/Header/Header';
-import CardGroups from './components/Card_Groups/Card_Groups';
-import Footer from './components/Footer/Footer';
-import Entete from './components/En-tete/En-tete'
+import FormulairePage from "./pages/FormulairePage";
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <Entete phrase={"Voici nos 4 programmes suivant votre activité sportive selon nos études"}/>
-    <CardGroups/>
-    <Formulaire/>
-    <Footer/>
+    <FormulairePage/>
   </React.StrictMode>,
   document.getElementById('root')
 );

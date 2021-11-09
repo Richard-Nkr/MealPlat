@@ -19,9 +19,6 @@ const {isSubmitting,isSubmitSuccessful, isSubmitted } = useFormState({
   control
 });
 
-
-
-
 // Afficher les valeurs entrer dans le formulaire apres 2 secondes
 
 
@@ -128,14 +125,12 @@ console.log();
 
 // Sans utilisation de JSON.parse , on utilise cette fonction pour remplacer les guillements des chaines de caractères
 
-const parse_nom = localStorage.Nom.replace(/"/g,"");
-const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
-
-
+const parse_localStorageValue = (x) => {
+  let res = x.replace(/"/g,"");
+  return res;
+}
     return(
-
-        
-        
+       
         <Form id="formulaire" onSubmit={handleSubmit(onSubmit)}>
         <br />
         <br />
@@ -154,7 +149,7 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
           {isSubmitSuccessful && <Alert variant="success">
           <Alert.Heading> Validation du fourmlaire</Alert.Heading>
           <p>
-            Merci {parse_nom} {parse_prenom} d'avoir valider vos informations, vous trouverez ci dessous une liste de plat correspondant à votre rythme de vie.
+            Merci {parse_localStorageValue(localStorage.Nom)} {parse_localStorageValue(localStorage.Prenom)} d'avoir valider vos informations, vous trouverez ci dessous une liste de plat correspondant à votre rythme de vie.
           </p>
         </Alert>}             
 
@@ -205,12 +200,9 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
               value: 25,
               message: "Impossible! Votre prénom ne doit pas comporter plus de 25 caractères." 
             }
-          
-          
+        
           })}/>
             
-                                                                                                            
-
           </Form.Group>     
           {/* Form.Select ne fonctionne pas, donc on créé un label en html pure*/}
           <label htmlFor="sexe">Sexe</label>
