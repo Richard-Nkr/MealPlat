@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressBarNutriment from './ProgressBar';
+import ProgressBarNutriment from './ProgressBarNutriment';
 
 export default {
     component: ProgressBarNutriment,

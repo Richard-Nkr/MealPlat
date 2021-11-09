@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import MealPlat from './pages/MealPlat';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MealPlat />
   </React.StrictMode>,
   document.getElementById('root')
 );
