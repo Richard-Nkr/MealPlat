@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
-=======
     "@elsdoerfer/react-arrow": "^1.0.4",
     "@hookform/error-message": "^2.0.0",
->>>>>>> d3b9746de42709a9a398860f0ae36b29cfb10633
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
