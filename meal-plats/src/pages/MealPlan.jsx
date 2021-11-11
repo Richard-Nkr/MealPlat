@@ -197,8 +197,13 @@ const MealPlat = () => {
     const res = await fetch(constructRecipeQuery("breakfast", neededKcal));
     const json = await res.json();
 
-    const randomInt = getRandomInt(5);  
-    const recipe = json.results[randomInt];
+    const randomInt = getRandomInt(5);
+
+    //Si il y a un résulat sinon recipe = null
+    var recipe = null;
+    if(!json.status){
+        recipe = json.results[randomInt];
+    }
 
     setBreakfast(recipe);
     setBrLoad(false);
@@ -209,8 +214,12 @@ const MealPlat = () => {
     const res = await fetch(constructRecipeQuery("lunch", neededKcal));
     const json = await res.json();
 
-    const randomInt = getRandomInt(10);  
-    const recipe = json.results[randomInt];
+    const randomInt = getRandomInt(10);
+    
+    var recipe = null;
+    if(!json.status){
+        recipe = json.results[randomInt];
+    }
 
     setLunch(recipe)
     
@@ -223,8 +232,12 @@ const MealPlat = () => {
     const res = await fetch(constructRecipeQuery("dinner", neededKcal));
     const json = await res.json();
 
-    const randomInt = getRandomInt(10);  
-    const recipe = json.results[randomInt];
+    const randomInt = getRandomInt(10);
+
+    var recipe = null;
+    if(!json.status){
+        recipe = json.results[randomInt];
+    }
 
     setDinner(recipe);
     
@@ -238,9 +251,6 @@ const reloadProgressBar = () => {
     setTotalFat(breakfast.nutrition.nutrients[2].amount + lunch.nutrition.nutrients[2].amount + dinner.nutrition.nutrients[2].amount)
     setTotalCarb(breakfast.nutrition.nutrients[3].amount + lunch.nutrition.nutrients[3].amount + dinner.nutrition.nutrients[3].amount)
 }
-
-
-
 
     
   const showRecipes = async () => {
@@ -2338,7 +2348,8 @@ const objects = {
   
     return (
         
-        <Container>
+        <Container fluid>
+            
             <Row className="justify-content-around">
                     <Col md="2"><ProgressBarNutriment title= "Protéines" number={totalProtein} totalNumber={neededNutriments.maxProtein} color='success'/></Col>
                     <Col md="2"><ProgressBarNutriment title= "Glucides" number={totalCarb} totalNumber={neededNutriments.maxCarb} color='warning'/></Col>

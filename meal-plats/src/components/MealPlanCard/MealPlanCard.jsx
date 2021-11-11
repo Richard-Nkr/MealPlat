@@ -23,12 +23,15 @@ function MealPlanCard({recipe, type, onReload, load}) {
       <Row className="align-items-center justify-content-center h-100 bg-primary">
                     <Spinner animation="border" />
                 </Row>
-
+    
       return (
         
-        <Card className={`h-100 position-relative ${load && 'transparent'}`}>
-            <>
-                {load && <Spinner animation="border" className="absolute-center" style={'opacity: 0.7'} /> }
+        <Card className="h-100 position-relative">
+                {load &&
+                    <div className="h-100 w-100 d-flex justify-content-center align-items-center position-absolute transparent">
+                        <Spinner animation="border" className="spinner-lg" /> 
+                    </div> 
+                }
                 <Card.Header>{type}</Card.Header>
                 <Card.Img variant="top" src={recipe.image} style={divStyle}/>
                 <Card.Body>
@@ -47,7 +50,6 @@ function MealPlanCard({recipe, type, onReload, load}) {
                     </Col>
                 </Row>
                 </Card.Footer>
-            </> 
         </Card>
 )
 

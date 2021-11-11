@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import MealPlat from './pages/MealPlat';
+import MealPlan from './pages/MealPlan';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MealPlat />
+    <MealPlan />
   </React.StrictMode>,
   document.getElementById('root')
 );

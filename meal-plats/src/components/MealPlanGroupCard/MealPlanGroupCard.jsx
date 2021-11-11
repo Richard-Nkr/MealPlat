@@ -2,9 +2,19 @@ import MealPlanCard from "../MealPlanCard/MealPlanCard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col} from "react-bootstrap";
 import "../../styles/_card.css"; 
+import Alert from 'react-bootstrap/Alert'
 
 function MealPlanGroupCard({breakfast, lunch, dinner, breakfastReload, lunchReload, dinnerReload, brLoad, luLoad, diLoad}) {
 
+    //Alerte s'il n'y a pas de recette
+    if(!breakfast && !lunch && !dinner){
+        return (
+            <Alert variant="danger text-center">
+                Désolé vous n'avons aucunes recettes pour vous, vérifiez que vos calories sont cohérents ou qu'il vous reste des crédits API
+            </Alert>
+        )
+    }
+    
     return (
     <Row className='row-cols-1 row-cols-md-3 g-4'>
         {breakfast && 
