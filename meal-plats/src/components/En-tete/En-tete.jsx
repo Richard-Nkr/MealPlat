@@ -1,8 +1,19 @@
-import "./En-tete.css";
+import "./En-tete.css"; 
 
 
-const Entete = ({ phrase }) => {
-  return <h4>{phrase}</h4>;
+
+const Entete = ({ phrase}) => {
+
+
+
+  return (
+    <div>
+  
+        <h4>{phrase}</h4>
+        
+      </div>
+       
+    )
 };
 
 export default Entete;

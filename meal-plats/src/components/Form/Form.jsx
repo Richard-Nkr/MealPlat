@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
@@ -7,7 +7,7 @@ import { useForm, useFormState } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import IMC_assets from "../../assets/imc.png";
 import AlertInformation from '../Alert_Message/Alert_Information';
-import Entete from '../En-tete/En-tete';
+
 
 
 const Formulaire = () => {
@@ -18,6 +18,8 @@ const { register, control, handleSubmit, formState: { errors } } = useForm({
 const {isSubmitting,isSubmitSuccessful, isSubmitted } = useFormState({
   control
 });
+
+
 
 // Afficher les valeurs entrer dans le formulaire apres 2 secondes
 
@@ -130,6 +132,7 @@ const parse_localStorageValue = (x) => {
   return res;
 }
     return(
+     
        
         <Form id="formulaire" onSubmit={handleSubmit(onSubmit)}>
         <br />
@@ -138,7 +141,7 @@ const parse_localStorageValue = (x) => {
 
         <Form.Group className="mb-3" controlId="formBasicNom">
 
-        <Entete phrase={"Veuillez remplir correctement présent le formulaire présent ci-dessous"}/>   
+       
         <br />       
 
 
@@ -309,6 +312,7 @@ const parse_localStorageValue = (x) => {
           Envoyer 
         </Button>
       </Form>
+     
 )
     }
 
