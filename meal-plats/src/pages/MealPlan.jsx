@@ -286,7 +286,7 @@ const MealPlan = () => {
     return (
         <div className="mealPlan">
             {progressBarIsOpen &&
-                <Container fluid className=" w-100 transparent">
+                <Container fluid className="transparent">
                     <br />
                     <Row className="justify-content-center mb-1">
                         <Circle number={totalKcal} totalNum={neededKcal} color="#ff4f87" />
@@ -300,14 +300,16 @@ const MealPlan = () => {
                 </Container>
             }
 
+            <Container>
             <Row className="justify-content-center">
                 <div className="hideBtn" onClick={() => setProgressBarIsOpen(!progressBarIsOpen)}>
                     {progressBarIsOpen ? <BsArrowBarUp /> : <BsArrowBarDown />}
                 </div>
             </Row>
+            </Container>
 
             <Container>
-                <Row className="mt-1 mb-5">
+                <Row className="mt-2 mb-5">
                     <MealPlanGroupCard breakfast={breakfast} breakfastReload={fetchBreakfast} brLoad={brIsLoading} lunch={lunch} lunchReload={fetchLunch} luLoad={luIsLoading} dinner={dinner} dinnerReload={fetchDinner} diLoad={diIsLoading}></MealPlanGroupCard>
                 </Row>
                 <br />

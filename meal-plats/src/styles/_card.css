@@ -138,6 +138,7 @@ a {
 .ft-recipe .ft-recipe__content .content__header .row-wrapper .recipe-title {
   font-family: var(--headlinesFont);
   font-weight: 600;
+  height: 60px
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details {
   display: flex;
