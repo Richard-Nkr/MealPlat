@@ -205,6 +205,14 @@ const parse_localStorageValue = (x) => {
             }
         
           })}/>
+
+
+
+        <ErrorMessage
+                    errors={errors}
+                    name="prenom"
+                    render={({ message }) => <span>{message}</span>}
+                />
             
           </Form.Group>     
           {/* Form.Select ne fonctionne pas, donc on créé un label en html pure*/}
