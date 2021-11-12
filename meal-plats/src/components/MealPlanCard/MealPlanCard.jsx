@@ -1,77 +1,60 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
-import {Row, Col} from "react-bootstrap";
+import React from 'react';
+import { useState } from 'react';
+import { BsClock, BsBook, BsPerson, BsArrowRepeat } from 'react-icons/bs';
 import Spinner from 'react-bootstrap/Spinner'
 
-function MealPlanCard({recipe, type, onReload, load}) {
-    const divStyle = {
-        width: null,
-        resizeMode: 'contain',
-        height: 220
-      };
 
+const MealPlanCard = (recipe, type, onReload, load) => {
 
-      const deleteHTMLTag = (str) => {
+    const [textOpen, setTextOpen] = useState(false);
+
+    const {extendedIngredients} = recipe.recipe ;
+
+    const deleteHTMLTag = (str) => {
         var stripedHtml = str.replace(/<[^>]+>/g, '');
         return stripedHtml;
      }
 
-      recipe.summary = deleteHTMLTag(recipe.summary);
-      <Row className="align-items-center justify-content-center h-100 bg-primary">
-                    <Spinner animation="border" />
-                </Row>
-    
-      return (
-        
-        <Card className="h-100 position-relative">
-                {load &&
+    recipe.recipe.summary = deleteHTMLTag(recipe.recipe.summary);
+
+    return (
+
+        <div className={`${!recipe.load && "slide-top"} ft-recipe`} >
+            
+            <button className="reload" onClick={recipe.onReload}>
+                <BsArrowRepeat size="20"/>
+            </button>
+
+            <div className="ft-recipe__thumb" onClick={() => setTextOpen(!textOpen)} >
+                {recipe.load &&
                     <div className="h-100 w-100 d-flex justify-content-center align-items-center position-absolute transparent">
-                        <Spinner animation="border" className="spinner-lg" /> 
+                        <Spinner animation="border" className="spinner-lg" variant="light" /> 
                     </div> 
                 }
-                <Card.Header>{type}</Card.Header>
-                <Card.Img variant="top" src={recipe.image} style={divStyle}/>
-                <Card.Body>
-                    <Card.Title>{recipe.title}</Card.Title>
-                    <Card.Text>
-                        {recipe.summary.substring(0, 150)+" [...]"}
-                    </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                <Row className="justify-content-between">
-                    <Col md="5"><Button variant="success">Voir la recette</Button></Col>
-                    <Col md="2">
-                        <button className="reload" onClick={onReload}>
-                            <FontAwesomeIcon icon={faSyncAlt} />
-                        </button>
-                    </Col>
-                </Row>
-                </Card.Footer>
-        </Card>
-)
+                <h3>{recipe.type}</h3>
+                <img src={recipe.recipe.image} alt="Strawberry Waffle" />
+            </div>
 
-    /*return (
-            <Card className="h-100">
-                <Card.Header></Card.Header>
-                <Card.Img variant="top" src={recipe.image} style={divStyle}/>
-                <Card.Body>
-                    <Card.Title>{recipe.title}</Card.Title>
-                    <Card.Text>
-                        {recipe.summary}
-                    </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                <Row className="justify-content-between">
-                    <Col md="5"><Button variant="success">Voir la recette</Button></Col>
-                    <Col md="2"><img src={refreshIcon} alt="Logo" class="float-right"/></Col>
-                </Row>
-                </Card.Footer>
-            </Card>
-    )*/
-}
-
+            {textOpen &&
+                <div className="ft-recipe__content">
+                    <header className="content__header">
+                        <div className="row-wrapper">
+                            <h3 className="recipe-title">{recipe.recipe.title}</h3>
+                            <div className="user-rating"></div>
+                        </div>
+                        <ul className="recipe-details">
+                            <li className="recipe-details-item time"><BsClock size="32" /><span className="value">{recipe.recipe.readyInMinutes}</span><span className="title">Minutes</span></li>
+                            <li className="recipe-details-item ingredients"><BsBook size="32" /><span className="value">{Object.keys(extendedIngredients).length}</span><span className="title">Ingredients</span></li>
+                            <li className="recipe-details-item servings"><BsPerson size="32" /> <span className="value">{recipe.recipe.servings}</span><span className="title">Serving</span></li>
+                        </ul>
+                    </header>
+                    <p className="description">
+                        {recipe.recipe.summary.substring(0, 150)+"..."}</p>
+                    <footer className="content__footer"><a href="#">View Recipe</a></footer>
+                </div>
+            }
+        </div>
+    );
+};
 
 export default MealPlanCard;

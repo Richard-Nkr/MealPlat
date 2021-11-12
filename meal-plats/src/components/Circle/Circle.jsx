@@ -3,13 +3,13 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const Circle = ({ number, color }) => {
+const Circle = ({ number, totalNum, color }) => {
   return (
     <>
       <div style={{ width: 200, height: 200 }}>
         <CircularProgressbar
-          value={(number / 2500) * 100}
-          text={`${Math.round((number / 2500) * 100)}%`}
+          value={(number*100)/totalNum}
+          text={`${Math.round(number)} kcal`}
           styles={buildStyles({
             // Rotation of path and trail, in number of turns (0-1)
             rotation: 0,
@@ -32,7 +32,6 @@ const Circle = ({ number, color }) => {
             trailColor: "#d6d6d6",
           })}
         />
-        ;
       </div>
     </>
   );

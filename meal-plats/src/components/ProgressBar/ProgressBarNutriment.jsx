@@ -1,7 +1,7 @@
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ProgressBarNutriment = ({number, totalNumber, totalcal, color, title}) => {
+const ProgressBarNutriment = ({number, totalNumber, color, title}) => {
 
   //Obtient la valeur en pourcentage d'un nombre par rapport à un autre
   const valueInPercentage = (num, totalNum) => {
@@ -11,9 +11,8 @@ const ProgressBarNutriment = ({number, totalNumber, totalcal, color, title}) => 
 
     return (
         <>
-                <h5>{title}</h5>
-                <ProgressBar now={pourcent} label={`${pourcent}%`}
-                variant={color} animated />
+                <p className="text-white progressTitle">{title}</p>
+                <ProgressBar className="progressNut" now={pourcent} label={`${pourcent}%`} variant={color} />
         </>
     )
 }
