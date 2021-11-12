@@ -5,14 +5,16 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import FormulairePage from "./pages/FormulairePage";
 import {ThemeProvider} from "./Context/Theme";
-import MealPlan from './pages/MealPlan';
+import App from "./App"
+
+
 
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
    
-    <MealPlan />
+    <App/>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

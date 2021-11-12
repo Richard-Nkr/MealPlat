@@ -1,0 +1,9 @@
+.card-img-top {
+  width: auto;
+  height: 30vw;
+  object-fit: contain;
+}
+
+.card_title {
+  height: 50px;
+}
