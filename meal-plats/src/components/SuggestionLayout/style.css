@@ -1,8 +1,15 @@
 .center-div {
   margin: 0 auto;
-  width: 50%;
+  width: 1000px;
 }
 
 .center-div h1 {
-  margin-left: 25%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.low-div {
+  margin: 0 auto;
+  width: 300px;
+  margin-top: 450px;
 }

@@ -1,8 +1,5 @@
-const useMealRecipe = () => {
+const useRecipeByCuisine = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
-  //const cuisines = ["African", "American", "British", "Chinese", "French"];
-  const titles = ["rice", "pasta", "tomato", "eggs", "cheese"];
-  const ingredients = ["tomato", "milk", "pasta", "cheese", "eggs"];
   const calories = ["300", "400", "500", "600", "700"];
   const proteins = ["5", "6", "7", "8", "9"];
 
@@ -12,21 +9,18 @@ const useMealRecipe = () => {
 
   const random = getRandomInt(5);
 
-  //const query_cuisine = cuisines[random];
-  const ingredient = ingredients[random];
-  const title = titles[random];
   const calorie = calories[random];
   const protein = proteins[random];
 
-  const fetchRecipe = async () => {
+  const fetchRecipe = async (cuisine) => {
+    console.log("OKKK");
+    console.log(cuisine);
     const result = await fetch(
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
         API_KEY +
-        "&titleMatch=" +
-        title +
-        "&includeIngredients=" +
-        ingredient +
-        "&number=3&maxCalories=" +
+        "&cuisine=" +
+        cuisine +
+        "&number=4&maxCalories=" +
         calorie +
         "&minProtein=" +
         protein
@@ -38,4 +32,4 @@ const useMealRecipe = () => {
   return fetchRecipe;
 };
 
-export default useMealRecipe;
+export default useRecipeByCuisine;

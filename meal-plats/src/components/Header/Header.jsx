@@ -1,16 +1,21 @@
 import "./style.css";
 import Title from "../Title/Title";
 
-const Header = ({ title, text, buttonTitle }) => {
+const Header = ({ title, text, buttonTitle, color }) => {
   return (
     <>
       <header>
-        <div class="overlay">
-          <h1></h1>
-          <Title title="MealPlats"></Title>
+        <div
+          class="overlay"
+          style={{
+            background: color,
+          }}
+        >
+          <a href="#">
+            <Title title="MealPlats"></Title>
+          </a>
           <h3>{title}</h3>
-          <p>{text}</p>
-
+          <p className="description">{text}</p>
           <button>{buttonTitle}</button>
         </div>
       </header>
