@@ -4,13 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import FormulairePage from "./pages/FormulairePage";
-import {ThemeProvider} from "./Context/Theme"
+import {ThemeProvider} from "./Context/Theme";
+import MealPlan from "../src/pages/MealPlan/";
 
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
     <FormulairePage/>
+    <MealPlan />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

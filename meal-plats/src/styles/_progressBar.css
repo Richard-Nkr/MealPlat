@@ -1,0 +1,22 @@
+.progressNut{
+    height: 20px;
+    border-radius: 20px;
+}
+
+.progressTitle{
+        font-size: 18px;
+        font-weight: 520;
+        margin: 0 0 10px;
+}
+
+.bg-ff9900{
+    background-color: #ff9900;
+}
+
+.bg-82b700{
+    background-color: #82b700;
+}
+
+.bg-00ebdd{
+    background-color: #00ebdd
+}
