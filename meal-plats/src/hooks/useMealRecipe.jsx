@@ -1,10 +1,10 @@
 const useMealRecipe = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
-  //const cuisines = ["African", "American", "British", "Chinese", "French"];
+  const cuisines = ["African", "American", "British", "Chinese", "French"];
   const titles = ["rice", "pasta", "tomato", "eggs", "cheese"];
   const ingredients = ["tomato", "milk", "pasta", "cheese", "eggs"];
   const calories = ["300", "400", "500", "600", "700"];
-  const proteins = ["5", "6", "7", "8", "9"];
+  const proteins = ["2", "3", "4", "5", "6"];
 
   const getRandomInt = (max) => {
     return Math.floor(Math.random() * max);

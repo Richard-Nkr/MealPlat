@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import FormulairePage from "./pages/FormulairePage";
 import {ThemeProvider} from "./Context/Theme";
-import App from "./App"
+import App from "./App";
+import Footer from "../src/components/Footer/Footer";
+
 
 
 
@@ -13,8 +14,8 @@ import App from "./App"
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-   
     <App/>
+    <Footer/>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

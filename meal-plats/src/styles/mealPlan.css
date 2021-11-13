@@ -1,23 +1,25 @@
 @import url(_progressBar.css);
 @import url(_card.css);
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
 
-body { 
-    background: url(../assets/mealPlanBackground3.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    overflow-y : scroll
-  }
-
-.transparent{
-background: rgba(0, 0, 0, 0.2);
--webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+body {
+  background: url(../assets/mealPlanBackground3.jpg) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow-y: scroll;
 }
 
-.hideBtn{
+.transparent {
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.hideBtn {
   width: 65px;
   height: 25px;
   line-height: 25px;
@@ -31,15 +33,15 @@ box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   box-shadow: 0 2px 2px #4f4c4c;
 }
 
-@keyframes slide-top{
-    0%{
-        transform:translateY(150px)
-    }
-    100%{
-        transform:translateY(0)
-    }
+@keyframes slide-top {
+  0% {
+    transform: translateY(150px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.slide-top{animation:slide-top .8s cubic-bezier(.25,.46,.45,.94) both}
-
-  
+.slide-top {
+  animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}

@@ -1,25 +1,15 @@
-.droite {
-  margin: 0 auto;
+.cuisine {
+  height: 750px;
+}
+
+.div1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20%;
   margin-top: 5%;
-  width: 50%;
-}
-
-.bas {
-  margin-top: 200px;
-  margin-bottom: 200px;
-}
-h2 {
-  width: 105%;
-  text-align: center;
-}
-
-.left_box {
-  width: 15%;
-  height: 200px;
-  float: left;
-}
-
-.right_box {
-  margin-left: 15%;
-  height: 843px;
+  width: 60%;
+  height: 800px;
+  background-color: #ffffff;
 }

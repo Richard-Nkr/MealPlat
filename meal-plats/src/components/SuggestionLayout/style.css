@@ -1,15 +1,73 @@
-.center-div {
-  margin: 0 auto;
-  width: 1000px;
-}
-
-.center-div h1 {
-  margin: 0 auto;
+.div_button {
+  margin-top: 5%;
+  margin-bottom: 5%;
   width: 100%;
+  margin-left: 30%;
 }
 
-.low-div {
-  margin: 0 auto;
-  width: 300px;
-  margin-top: 450px;
+.d-flex h1 {
+  margin-left: 30%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  font-size: 40px;
+}
+
+/* CSS */
+.button-19 {
+  margin-top: 30px;
+  appearance: button;
+  background-color: #1899d6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 50%;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #1cb0f6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:main,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
 }

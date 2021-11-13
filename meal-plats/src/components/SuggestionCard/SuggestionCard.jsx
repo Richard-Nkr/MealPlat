@@ -1,15 +1,20 @@
 import "./style.css";
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Button2 from "../Button/Button";
+import { ThemeContext } from "../../Context/Theme";
 
 const SuggestionCard = ({ array }) => {
   const cardInfo = array;
+  const [loading, setLoading] = useState(false);
+  const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
 
   const renderCard = (card, index) => {
     return (
-      <Card style={{ width: "20rem", height: "50px" }}>
+      <Card className="card">
         <Card.Img variant="top" src={card.image} />
         <Card.Body>
           <Card.Title className="card_title">{card.title}</Card.Title>
@@ -30,8 +35,14 @@ const SuggestionCard = ({ array }) => {
               : ""}
           </Card.Text>
           <Link to={"/recipe/card/" + card.id}>
-            {" "}
-            <Button variant="primary">Voir la recette</Button>
+            <Button2
+              text="Voir la recette"
+              className="btn"
+              color={theme.backgroundColor}
+              width="280px"
+            >
+              Voir la recette
+            </Button2>
           </Link>
         </Card.Body>
       </Card>

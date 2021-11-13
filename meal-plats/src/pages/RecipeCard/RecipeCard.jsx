@@ -26,6 +26,7 @@ const RecipeCard = () => {
       <div>
         <img className="img_recipe" src={result}></img>
       </div>
+      <br></br>
     </>
   );
 };

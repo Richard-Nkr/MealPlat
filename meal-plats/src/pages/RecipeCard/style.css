@@ -1,6 +1,7 @@
 .img_recipe {
-  width: 700px;
-  height: 900px;
-  border-radius: 8px;
-  border: 5px solid #555;
+  margin-bottom: 5 px;
+  margin-left: 25%;
+  border-radius: 50px;
+  border: 15px solid rgb(0, 0, 0);
+  left: 25%;
 }
