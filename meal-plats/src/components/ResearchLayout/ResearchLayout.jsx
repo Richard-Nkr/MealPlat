@@ -64,7 +64,7 @@ const ResearchLayout = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form  id='search_form' onSubmit={handleSubmit}>
         <input
           type="text"
           name="query"

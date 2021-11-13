@@ -283,6 +283,9 @@ const MealPlan = () => {
   return (
     <div className="mealPlan">
       <Navbar />
+      <br />
+      <br />
+      
       {progressBarIsOpen && (
         <Container fluid className=" w-100 transparent">
           <br />

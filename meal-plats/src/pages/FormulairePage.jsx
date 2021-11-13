@@ -13,6 +13,10 @@ import "./FormulairePage.css";
 const FormulairePage = () => {
   const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
   return (
+
+    <>
+    <Navbar />
+    
     <div
       className="app"
       style={{
@@ -21,12 +25,15 @@ const FormulairePage = () => {
         background: theme.background,
       }}
     >
-      <Navbar />
+      <br />
+      <br />
+      
 
       <CardGroups />
 
       <Formulaire />
     </div>
+    </>
   );
 };
 

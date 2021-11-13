@@ -26,7 +26,7 @@ const Navbar = () => {
           <ul>
             <li>
               {" "}
-              <button type="button" onClick={toggleTheme}>
+              <button type="button"  id="Navbar_Button" onClick={toggleTheme}>
                 {isDark ? (
                   <BsFillSunFill size={25} color="rgb(255, 228, 54)" />
                 ) : (
@@ -63,7 +63,7 @@ const Navbar = () => {
                   <br></br>
                   <br></br>
                   <br></br>
-                  MEALPLAN
+                  FORMULAIRE
                 </Link>
               </a>
             </li>

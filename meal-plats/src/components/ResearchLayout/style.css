@@ -10,3 +10,9 @@
   list-style: none;
   float: left;
 }
+
+#search_form{
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

@@ -19,7 +19,7 @@ const FlagLayout = () => {
   };
   return (
     <>
-      <h2>Choisis une spécialité</h2>
+      <h2 id="title_recipe" style={{color:theme.color}}>Choisis une spécialité</h2>
 
       <div class="d-flex flex-nowrap">
         <figure>
