@@ -17,7 +17,7 @@ const Button = ({
         disabled={loading || disabled}
         style={{ backgroundColor: color, width: width }}
       >
-        {!loading ? text : "loading..."}
+        {!loading ? text : "Chargement..."}
       </button>
     </>
   );

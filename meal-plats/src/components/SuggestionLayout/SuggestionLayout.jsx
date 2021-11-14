@@ -1,6 +1,5 @@
 import "./style.css";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import useMealRecipe from "../../hooks/useMealRecipe";
 import SuggestionCard from "../SuggestionCard/SuggestionCard";
 import Button from "../Button/Button";
@@ -9,30 +8,62 @@ import { ThemeContext } from "../../Context/Theme";
 const SuggestionLayout = () => {
   const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
   const [results, setResults] = useState([]);
-  console.log(theme.color);
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const fetchRecipe = useMealRecipe();
 
+  const fake_results = [
+    {
+      title: "",
+      image: "https://giphy.com/embed/y1ZBcOGOOtlpC",
+    },
+    {
+      title: "",
+      image: "https://giphy.com/embed/y1ZBcOGOOtlpC",
+    },
+    {
+      title: "",
+      image: "https://giphy.com/embed/y1ZBcOGOOtlpC",
+    },
+  ];
+
   const fetchData = async () => {
+    setLoading(true);
+    setDisabled(true);
     const result = await fetchRecipe();
-    setResults(result.results);
+    setTimeout(() => {
+      setResults(result.results);
+      setLoading(false);
+    }, 1500);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  console.log(results);
   return (
     <>
       <div className="d-flex flex-column">
-        <h1 style={{ color: theme.color }}> Suggestions de recettes</h1>
-        <SuggestionCard array={results}></SuggestionCard>
+        <h1 style={{ color: theme.color }}> Idées de recette </h1>
+        {loading ? (
+          <SuggestionCard
+            array={fake_results}
+            loading={loading}
+          ></SuggestionCard>
+        ) : (
+          <SuggestionCard array={results} loading={loading}></SuggestionCard>
+        )}
+
         <div className="div_button">
           <Button
             text="Voir d'autres recettes"
             onClick={fetchData}
             color={theme.backgroundColor}
             width="400px"
+            loading={loading}
+            disabled={loading}
           ></Button>
         </div>
       </div>

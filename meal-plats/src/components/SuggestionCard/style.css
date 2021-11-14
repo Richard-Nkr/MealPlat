@@ -21,18 +21,4 @@
   box-shadow: 0px 0px 30px 2px #000;
 }
 
-.btn {
-  display: block;
-  color: white;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-align: center;
-  padding: 10px;
-  transition: 250ms;
-}
 
-.btn:hover {
-  background: red;
-  transition: 250ms;
-}

@@ -47,14 +47,10 @@
 }
 
 .btn-disabled {
-  margin-top: 30%;
-  margin-left: 35%;
   text-align: center;
   text-transform: uppercase;
-  cursor: pointer;
   font-size: 20px;
   letter-spacing: 4px;
-  position: relative;
   background-color: gray;
   background-image: repeating-linear-gradient(
     45deg,
@@ -66,7 +62,6 @@
   border: none;
   color: #fff;
   padding: 20px;
-  width: 200px;
   transition-duration: 0.4s;
   overflow: hidden;
   box-shadow: 0 5px 15px #193047;

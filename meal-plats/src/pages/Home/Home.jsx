@@ -23,7 +23,8 @@ const Home = () => {
         </div>
 
         <ResearchLayout />
-        <div className="cuisine">
+        <div className="div2"
+          style={{ backgroundColor: theme.background, color: theme.color }}>
           <FlagLayout />
         </div>
 
