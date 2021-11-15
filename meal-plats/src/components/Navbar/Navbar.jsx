@@ -2,10 +2,6 @@ import { useContext } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
-import SuggestionLayout from "../../components/SuggestionLayout/SuggestionLayout";
-import FlagLayout from "../../components/FlagLayout/FlagLayout";
-import ResearchLayout from "../../components/ResearchLayout/ResearchLayout";
-import Header from "../../components/Header/Header";
 import { constants } from "../../constants";
 import { ThemeContext } from "../../Context/Theme";
 

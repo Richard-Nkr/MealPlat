@@ -72,3 +72,14 @@ nav.blend ul li a:hover:before {
   position: absolute;
   left: 49%;
 }
+
+nav button {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #333;
+  background: #fff;
+  margin-bottom: 50px;
+  box-shadow: 0 3px 20px 0 #0000003b;
+}

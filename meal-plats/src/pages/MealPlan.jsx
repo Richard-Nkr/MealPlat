@@ -8,10 +8,11 @@ import Circle from "../components/Circle/Circle";
 import "../styles/mealPlan.css";
 import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
 import Navbar from "../components/Navbar/Navbar";
-import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert';
+import { Link } from "react-router-dom";
+import { constants } from "../constants";
 
 const MealPlan = () => {
-  //TODO : vérifier les cal parcque bug
 
   /*Needed nutriments*/
   const [neededKcal, setNeededKcal] = useState(0);
@@ -37,9 +38,13 @@ const MealPlan = () => {
   const [progressBarIsOpen, setProgressBarIsOpen] = useState(true);
 
   useEffect(() => {
-    const storageCal = localStorage.getItem('CALORIES')
+
+    var storageCal = localStorage.getItem('CALORIES')
+    
+
     if (storageCal) {
-      setNeededKcal(storageCal);
+      storageCal = storageCal.replace(/"/g,"")
+      setNeededKcal( parseInt(storageCal));
       setNeededNutriments(neededNutrimentsPerCalorie(storageCal));
     }
   }, []);
@@ -60,13 +65,10 @@ const MealPlan = () => {
     const { calories } = nutritionalInfos;
     const { nutriments } = nutritionalInfos;
 
-    const myApi = "90c3676dd91647f7926fb16833153b75";
-    const richardApi = "775d6e05bc704ca4a9d20a064595cc15";
-    const zuanliApi = "0a75600e2ffc40a7b0f1ca1f6591bdbe";
-    const otherApi = "debbfcabab43435f91fca421791c032d";
+    const API_KEY = process.env.REACT_APP_API_KEY_BRENDAN;
 
     const baseQuery =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=debbfcabab43435f91fca421791c032d"; // a changer
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=f9156ed799194979a8dfc4e7518df2cc" //+ API_KEY;
 
     if (type !== "breakfast") type = "main course"; // car type Dinner ou Lunch n'existe pas dans l'API
 
@@ -223,8 +225,6 @@ const MealPlan = () => {
     const res = await fetch(constructRecipeQuery("lunch", neededKcal));
     const json = await res.json();
 
-    console.log(json);
-
     const randomInt = getRandomInt(10);
 
     var recipe = null;
@@ -323,16 +323,26 @@ const MealPlan = () => {
         </Container>
       )}
 
-      <Row className="justify-content-center">
-        <div
-          className="hideBtn"
-          onClick={() => setProgressBarIsOpen(!progressBarIsOpen)}
-        >
-          {progressBarIsOpen ? <BsArrowBarUp /> : <BsArrowBarDown />}
-        </div>
-      </Row>
+      <Container>
+        <Row className="justify-content-center">
+          <div
+            className="hideBtn"
+            onClick={() => setProgressBarIsOpen(!progressBarIsOpen)}
+          >
+            {progressBarIsOpen ? <BsArrowBarUp /> : <BsArrowBarDown />}
+          </div>
+        </Row>
+      </Container>
 
-    {neededKcal === 0 ?
+    {neededKcal === 0 
+      ?
+      <>
+        <br />
+        <Alert variant="danger text-center">
+          Vous n'avez pas encore renseigné vos informations, merci de les saisir ici : <Link to={constants.PATHS.FORM}>Formulaire</Link>
+          </Alert>
+      </>
+      :
       <Container>
         <Row className="mt-1 mb-5">
           <MealPlanGroupCard
@@ -349,10 +359,6 @@ const MealPlan = () => {
         </Row>
         <br />
       </Container>
-      : 
-      <Alert variant="danger text-center">
-        Vous n'avez pas encore renseignez vos informations, merci de les saisir ici : <a>Formulaire</a>
-        </Alert>
     }
     </div>
   );
