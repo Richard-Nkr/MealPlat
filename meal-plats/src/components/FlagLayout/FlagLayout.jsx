@@ -19,9 +19,11 @@ const FlagLayout = () => {
   };
   return (
     <>
-      <h2 id="title_recipe" style={{color:theme.color}}>Choisis une spécialité</h2>
+      <h2 id="title_recipe" style={{ color: theme.color }}>
+        Choisis une spécialité
+      </h2>
 
-      <div class="d-flex flex-nowrap">
+      <div id="all_flags" class="d-flex flex-nowrap">
         <figure>
           <img
             style={{ boxShadow: theme.boxShadow }}
@@ -93,7 +95,7 @@ const FlagLayout = () => {
           <figcaption className="country_name">Japonaise</figcaption>
         </figure>
       </div>
-      <div className="d-flex flex-column">
+      <div id="cards_recipe" className="d-flex flex-column">
         <SuggestionCard array={results}></SuggestionCard>
       </div>
     </>
