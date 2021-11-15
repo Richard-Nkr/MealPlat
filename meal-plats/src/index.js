@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import MealPlan from './pages/MealPlan';
+import {ThemeProvider} from "./Context/Theme";
+import App from "./App";
+import Footer from "../src/components/Footer/Footer";
+
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <MealPlan />
+    <ThemeProvider>
+    <App/>
+    <Footer/>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

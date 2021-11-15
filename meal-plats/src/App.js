@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Home from "./pages/Home/Home";
+import RecipeCard from "./pages/RecipeCard/RecipeCard";
+import MealPlan from './pages/MealPlan';
+import FormulairePage from './pages/FormulairePage';
+import { constants } from './constants';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path={constants.PATHS.HOME}>
+          <Home/>
+        </Route>
+        <Route path={constants.PATHS.RECIPE_CARD}>
+          <RecipeCard/>
+        </Route>
+        <Route path={constants.PATHS.MEAL_PLAN}>
+        <MealPlan />
+        </Route>
+        <Route path={constants.PATHS.FORM}>
+          <FormulairePage/>
+        </Route>
+      </Switch>
+    </Router>
+
   );
 }
 
 export default App;
+
+
+

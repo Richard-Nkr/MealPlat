@@ -1,5 +1,4 @@
 #card_group {
-    width: 80%;
     margin: auto;
     margin-top: 40px;
 }
@@ -11,10 +10,12 @@
 }
  
 
-.card {
-    padding: 30px;
-}
+
 
 #entete1 {
     color: blue
 }
+
+
+
+

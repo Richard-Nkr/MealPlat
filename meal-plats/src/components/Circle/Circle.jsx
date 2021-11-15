@@ -1,5 +1,3 @@
-
-
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -8,7 +6,7 @@ const Circle = ({ number, totalNum, color }) => {
     <>
       <div style={{ width: 200, height: 200 }}>
         <CircularProgressbar
-          value={(number*100)/totalNum}
+          value={(number * 100) / totalNum}
           text={`${Math.round(number)} kcal`}
           styles={buildStyles({
             // Rotation of path and trail, in number of turns (0-1)

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
@@ -7,7 +7,7 @@ import { useForm, useFormState } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import IMC_assets from "../../assets/imc.png";
 import AlertInformation from '../Alert_Message/Alert_Information';
-import Entete from '../En-tete/En-tete';
+
 
 
 const Formulaire = () => {
@@ -18,7 +18,6 @@ const { register, control, handleSubmit, formState: { errors } } = useForm({
 const {isSubmitting,isSubmitSuccessful, isSubmitted } = useFormState({
   control
 });
-
 
 
 
@@ -128,14 +127,13 @@ console.log();
 
 // Sans utilisation de JSON.parse , on utilise cette fonction pour remplacer les guillements des chaines de caractères
 
-const parse_nom = localStorage.Nom.replace(/"/g,"");
-const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
-
-
+const parse_localStorageValue = (x) => {
+  let res = x.replace(/"/g,"");
+  return res;
+}
     return(
-
-        
-        
+     
+       
         <Form id="formulaire" onSubmit={handleSubmit(onSubmit)}>
         <br />
         <br />
@@ -143,7 +141,7 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
 
         <Form.Group className="mb-3" controlId="formBasicNom">
 
-        <Entete phrase={"Veuillez remplir correctement présent le formulaire présent ci-dessous"}/>   
+       
         <br />       
 
 
@@ -154,7 +152,7 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
           {isSubmitSuccessful && <Alert variant="success">
           <Alert.Heading> Validation du fourmlaire</Alert.Heading>
           <p>
-            Merci {parse_nom} {parse_prenom} d'avoir valider vos informations, vous trouverez ci dessous une liste de plat correspondant à votre rythme de vie.
+            Merci {parse_localStorageValue(localStorage.Nom)} {parse_localStorageValue(localStorage.Prenom)} d'avoir valider vos informations, vous trouverez ci dessous une liste de plat correspondant à votre rythme de vie.
           </p>
         </Alert>}             
 
@@ -205,12 +203,17 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
               value: 25,
               message: "Impossible! Votre prénom ne doit pas comporter plus de 25 caractères." 
             }
-          
-          
+        
           })}/>
-            
-                                                                                                            
 
+
+
+        <ErrorMessage
+                    errors={errors}
+                    name="prenom"
+                    render={({ message }) => <span>{message}</span>}
+                />
+            
           </Form.Group>     
           {/* Form.Select ne fonctionne pas, donc on créé un label en html pure*/}
           <label htmlFor="sexe">Sexe</label>
@@ -317,6 +320,7 @@ const parse_prenom  = localStorage.Prenom.replace(/"/g,"");
           Envoyer 
         </Button>
       </Form>
+     
 )
     }
 
