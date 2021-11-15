@@ -80,16 +80,6 @@ const FlagLayout = () => {
           />
           <figcaption className="country_name">Italienne</figcaption>
         </figure>
-        <figure>
-          <img
-            style={{ boxShadow: theme.boxShadow }}
-            src="http://www.geognos.com/api/en/countries/flag/JP.png"
-            className="flag"
-            alt="Japanese"
-            onClick={fetchData}
-          />
-          <figcaption className="country_name">Japonaise</figcaption>
-        </figure>
       </div>
       <div id="cards_recipe" className="">
         <SuggestionCard array={results}></SuggestionCard>
