@@ -14,17 +14,24 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div class="d-flex flex-column">
+      <div
+        class="d-flex flex-column"
+        className="center"
+        style={{ width: "50%" }}
+      >
         <div
-          className="div1"
+          className="div10"
           style={{ backgroundColor: theme.background, color: theme.color }}
         >
+          <h2 style={{ color: theme.color }}> Idées de recette </h2>
           <SuggestionLayout />
         </div>
 
-        <ResearchLayout />
-        <div className="div2"
-          style={{ backgroundColor: theme.background, color: theme.color }}>
+        <div
+          className="div11"
+          style={{ backgroundColor: theme.background, color: theme.color }}
+        >
+          <h2 style={{ color: theme.color }}>Choix d'une spécialitée</h2>
           <FlagLayout />
         </div>
 

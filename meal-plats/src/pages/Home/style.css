@@ -3,26 +3,31 @@
   margin: auto;
 }
 
-.div1 {
-  display: flex;
-  flex-wrap: wrap;
+.center {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+
+#center {
+  margin: 0 auto;
+}
+
+.div10 {
+  border-radius: 30px;
+}
+
+.div11 {
   align-items: center;
-  justify-content: center;
-  margin-left: 20%;
+  border-radius: 30px;
+  margin: 0 auto;
   margin-top: 5%;
-  width: 60%;
-  height: 800px;
+  margin-left: -20%;
+  width: 145%;
   background-color: #ffffff;
 }
 
-.div2{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10%;
-  margin-top: 5%;
-  width: 80%;
-  height: 1000px;
-  background-color: #ffffff;
+h2 {
+  padding: 20px;
+  margin-bottom: 2%;
 }

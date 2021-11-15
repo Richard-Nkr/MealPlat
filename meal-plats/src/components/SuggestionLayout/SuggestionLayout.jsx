@@ -45,8 +45,7 @@ const SuggestionLayout = () => {
   console.log(results);
   return (
     <>
-      <div className="d-flex flex-column">
-        <h1 style={{ color: theme.color }}> Idées de recette </h1>
+      <div class="d-flex flex-column">
         {loading ? (
           <SuggestionCard
             array={fake_results}
