@@ -28,6 +28,18 @@
   font-size: large;
   font-weight: bold;
 }
-#title_recipe{
+#title_recipe {
+  position: absolute;
   text-align: center;
+  margin-top: -40%;
+}
+
+#all_flags {
+  position: absolute;
+  margin-top: -20%;
+  margin-bottom: 60px;
+}
+
+#cards_recipe {
+  margin-top: 20%;
 }
