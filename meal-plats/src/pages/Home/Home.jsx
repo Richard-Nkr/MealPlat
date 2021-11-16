@@ -1,12 +1,9 @@
 import { useContext } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
-import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import SuggestionLayout from "../../components/SuggestionLayout/SuggestionLayout";
 import FlagLayout from "../../components/FlagLayout/FlagLayout";
 import SearchLayout from "../../components/SearchLayout/SearchLayout";
 import Navbar from "../../components/Navbar/Navbar";
-import { constants } from "../../constants";
 import { ThemeContext } from "../../Context/Theme";
 
 const Home = () => {
@@ -39,7 +36,7 @@ const Home = () => {
           className="div12"
           style={{ backgroundColor: theme.background, color: theme.color }}
         >
-          <h2 style={{ color: theme.color }}>Choix d'une spécialitée</h2>
+          <h2 style={{ color: theme.color }}>Recherche par ingrédients</h2>
           <SearchLayout />
         </div>
 

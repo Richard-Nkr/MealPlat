@@ -7,14 +7,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button2 from "../Button/Button";
 import { ThemeContext } from "../../Context/Theme";
 
-const SuggestionCard = ({ array, loading }) => {
-  const cardInfo = array;
+const SuggestionCard = ({ array, loading, error=""}) => {
+  useEffect(() => {
+    
+  }, []);
+ 
+  const cardInfo =  array;
+
+  console.log(cardInfo.length);
   const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
 
-  const renderCard = (card, index) => {
+  const renderCard = (card) => {
+    console.log(card);
     return (
       <>
-        <Card className={loading ? "card_loading" : "card"}>
+        <Card>
           {loading ? (
             <iframe
               className="img_recipe"
@@ -66,11 +73,11 @@ const SuggestionCard = ({ array, loading }) => {
 
   return (
     <div style={{ display: "flex" }}>
-      {cardInfo ? (
+      {cardInfo.length != 0 ? (
         cardInfo.map(renderCard)
       ) : (
-        <div style={{ height: "500px", color: "red", width: "100%" }}>
-          Erreur. Nous n'avons pas trouvé de recettes
+        <div style={{ marginTop:"5%",height: "500px", color: "black", width: "100%", fontSize:"20px" }}>
+          {error}
         </div>
       )}
     </div>

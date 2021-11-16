@@ -47,9 +47,9 @@ const SuggestionLayout = () => {
           <SuggestionCard
             array={fake_results}
             loading={loading}
-          ></SuggestionCard>
+          />
         ) : (
-          <SuggestionCard array={results} loading={loading}></SuggestionCard>
+          <SuggestionCard array={results} loading={loading}/>
         )}
 
         <div className="div_button">
@@ -59,7 +59,6 @@ const SuggestionLayout = () => {
             color={theme.backgroundColor}
             width="400px"
             loading={loading}
-            disabled={loading}
           ></Button>
         </div>
       </div>

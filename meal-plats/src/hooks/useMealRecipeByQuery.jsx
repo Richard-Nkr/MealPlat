@@ -9,7 +9,6 @@ const useMealRecipeByQuery = () => {
         query +
         "&number=4"
     );
-
     return result.json();
   };
 

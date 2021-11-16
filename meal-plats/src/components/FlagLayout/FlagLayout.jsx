@@ -8,7 +8,6 @@ const FlagLayout = () => {
   const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
 
   const [results, setResults] = useState([]);
-
   const fetchRecipe = useRecipeByCuisine();
 
   const fetchData = async (e) => {
@@ -81,8 +80,8 @@ const FlagLayout = () => {
           <figcaption className="country_name">Italienne</figcaption>
         </figure>
       </div>
-      <div id="cards_recipe" className="">
-        <SuggestionCard array={results}></SuggestionCard>
+      <div id="cards_recipe">
+        <SuggestionCard array={results} error="Pas de spécialitée sélectionnée !"></SuggestionCard>
       </div>
     </>
   );
