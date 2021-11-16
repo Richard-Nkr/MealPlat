@@ -13,8 +13,6 @@ const useRecipeByCuisine = () => {
   const protein = proteins[random];
 
   const fetchRecipe = async (cuisine) => {
-    console.log("OKKK");
-    console.log(cuisine);
     const result = await fetch(
       "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
         API_KEY +

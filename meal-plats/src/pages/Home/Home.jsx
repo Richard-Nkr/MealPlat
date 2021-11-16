@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import SuggestionLayout from "../../components/SuggestionLayout/SuggestionLayout";
 import FlagLayout from "../../components/FlagLayout/FlagLayout";
-import ResearchLayout from "../../components/ResearchLayout/ResearchLayout";
+import SearchLayout from "../../components/SearchLayout/SearchLayout";
 import Navbar from "../../components/Navbar/Navbar";
 import { constants } from "../../constants";
 import { ThemeContext } from "../../Context/Theme";
@@ -33,6 +33,14 @@ const Home = () => {
         >
           <h2 style={{ color: theme.color }}>Choix d'une spécialitée</h2>
           <FlagLayout />
+        </div>
+
+        <div
+          className="div12"
+          style={{ backgroundColor: theme.background, color: theme.color }}
+        >
+          <h2 style={{ color: theme.color }}>Choix d'une spécialitée</h2>
+          <SearchLayout />
         </div>
 
         <br></br>

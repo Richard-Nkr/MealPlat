@@ -9,7 +9,6 @@ const SuggestionLayout = () => {
   const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [disabled, setDisabled] = useState(false);
 
   const fetchRecipe = useMealRecipe();
 
@@ -30,7 +29,6 @@ const SuggestionLayout = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    setDisabled(true);
     const result = await fetchRecipe();
     setTimeout(() => {
       setResults(result.results);
@@ -42,7 +40,6 @@ const SuggestionLayout = () => {
     fetchData();
   }, []);
 
-  console.log(results);
   return (
     <>
       <div class="d-flex flex-column">

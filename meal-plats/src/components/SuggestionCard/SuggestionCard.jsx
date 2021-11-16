@@ -9,7 +9,6 @@ import { ThemeContext } from "../../Context/Theme";
 
 const SuggestionCard = ({ array, loading }) => {
   const cardInfo = array;
-  console.log(cardInfo);
   const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
 
   const renderCard = (card, index) => {
@@ -66,9 +65,16 @@ const SuggestionCard = ({ array, loading }) => {
   };
 
   return (
-
-
-  <div style={{ display: "flex" }}>{cardInfo ? cardInfo.map(renderCard) : <div style={{height:'500px', color:'red', width:'100%'}}>Erreur. Nous n'avons pas trouvé de recettes</div> }</div>);
+    <div style={{ display: "flex" }}>
+      {cardInfo ? (
+        cardInfo.map(renderCard)
+      ) : (
+        <div style={{ height: "500px", color: "red", width: "100%" }}>
+          Erreur. Nous n'avons pas trouvé de recettes
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default SuggestionCard;
