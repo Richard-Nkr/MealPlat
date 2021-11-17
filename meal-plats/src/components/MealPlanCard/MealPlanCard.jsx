@@ -20,19 +20,19 @@ const MealPlanCard = ({recipe, type, onReload, load}) => {
 
     return (
 
-        <div className={`${!recipe.load && "slide-top"} ft-recipe`} >
+        <div className={`${!load && "slide-top"} ft-recipe`} >
             
-            <button className="reload" onClick={recipe.onReload}>
+            <button className="reload" onClick={onReload}>
                 <BsArrowRepeat size="20"/>
             </button>
 
             <div className="ft-recipe__thumb" onClick={() => setTextOpen(!textOpen)} >
-                {recipe.load &&
+                {load &&
                     <div className="h-100 w-100 d-flex justify-content-center align-items-center position-absolute transparent">
                         <Spinner animation="border" className="spinner-lg" variant="light" /> 
                     </div> 
                 }
-                <h3>{recipe.type}</h3>
+                <h3>{type}</h3>
                 <img src={recipe.image} alt="Strawberry Waffle" />
             </div>
 

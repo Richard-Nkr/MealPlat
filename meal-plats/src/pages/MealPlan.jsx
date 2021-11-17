@@ -68,7 +68,7 @@ const MealPlan = () => {
     const API_KEY = process.env.REACT_APP_API_KEY_BRENDAN;
 
     const baseQuery =
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=f9156ed799194979a8dfc4e7518df2cc" //+ API_KEY;
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + API_KEY;
 
     if (type !== "breakfast") type = "main course"; // car type Dinner ou Lunch n'existe pas dans l'API
 
